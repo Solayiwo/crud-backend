@@ -1,15 +1,18 @@
 const express = require("express");
 const cors = require("cors");
+const formRoute = require("./routes/formRoutes");
 
 const app = express();
 
 // const port = 4500;
+// Only parse JSON if the request body hasn't already been parsed
+if (process.env.VERCEL !== "1") {
+  app.use(express.json());
+}
 
-app.use(express.json());
 app.use(cors());
 
-const formRoute = require("./routes/formRoutes");
-
+// Routes
 app.use("/api/form", formRoute);
 
 // app.get("/", (req, res) => {
