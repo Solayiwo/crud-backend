@@ -19,6 +19,10 @@ app.use("/api/form", formRoute);
 //   res.send("Server Started Successfully");
 // });
 
+app.get("/test", (req, res) => {
+  res.json({ message: "Hello from /api/test" });
+});
+
 // app.listen(port, () => {
 //   console.log(`Server listening at http://127.0.0:${port}`);
 // });
